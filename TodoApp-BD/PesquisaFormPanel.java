@@ -26,10 +26,10 @@ public class PesquisaFormPanel extends JPanel {
 
     private JTextField txtIdPesquisa;
     private JTextField txtIdCandidato;
-    private JFormattedTextField txtDia;
-    private JFormattedTextField txtMes;
+    private JTextField txtIntencao;
     private JTextField txtFonte;
-    private JFormattedTextField txtIntencao;
+    private JTextField txtMes;
+    private JTextField txtAno;
     private JButton btnSalvar;
     private JButton btnCancelar;
 
@@ -45,16 +45,25 @@ public class PesquisaFormPanel extends JPanel {
             public void componentShown(ComponentEvent e) {
                 if (pesquisa == null) {
                     txtIdPesquisa.setText("");
+                    txtIdCandidato.setText("");
+                    txtIntencao.setText("");
                     txtFonte.setText("");
+                    txtMes.setText("");
+                    txtAno.setText("");
+                    
                 } else {
                     txtIdPesquisa.setText(Integer.toString(pesquisa.getIdPesquisa()));
+                    txtIdCandidato.setText(Integer.toString(pesquisa.getIdCandidato()));
+                    txtIntencao.setText(Integer.toString(pesquisa.getIntencaoVotos()));
                     txtFonte.setText(pesquisa.getFontePesquisa());
+                    txtMes.setText(Integer.toString(pesquisa.getMesPesquisa()));
+                    txtAno.setText(Integer.toString(pesquisa.getAnoPesquisa()));
                 }
             }
         });
 
         criarForm();
-        formatCampo();
+        //formatCampo();
         
     }
 
@@ -71,30 +80,31 @@ public class PesquisaFormPanel extends JPanel {
         txtIdPesquisa.setEditable(false);
         adicionarComponente(txtIdPesquisa, 1, 0);
 
-        label = new JLabel("Fonte");
-        adicionarComponente(label, 2, 0);
-        txtFonte = new JTextField();
-        adicionarComponente(txtFonte, 3, 0);
-
-        label = new JLabel("Dia");
-        adicionarComponente(label, 4, 0);
-        txtDia = new JFormattedTextField();
-        adicionarComponente(txtDia, 5, 0);
-
-        label = new JLabel("Mes");
-        adicionarComponente(label, 6, 0);
-        txtMes = new JFormattedTextField();
-        adicionarComponente(txtMes, 7, 0);
-
         label = new JLabel("Candidato");
-        adicionarComponente(label, 8, 0);
+        adicionarComponente(label, 3, 0);
         txtIdCandidato = new JTextField(30);
-        adicionarComponente(txtIdCandidato, 9, 0);
+        adicionarComponente(txtIdCandidato, 3, 0);
 
         label = new JLabel("Intencao");
-        adicionarComponente(label, 10, 0);
+        adicionarComponente(label, 4, 0);
         txtIntencao = new JFormattedTextField();
-        adicionarComponente(txtIntencao, 11, 0);
+        adicionarComponente(txtIntencao, 5, 0);
+
+        label = new JLabel("Fonte");
+        adicionarComponente(label, 6, 0);
+        txtFonte = new JTextField();
+        adicionarComponente(txtFonte, 7, 0);
+
+        label = new JLabel("Dia");
+        adicionarComponente(label, 8, 0);
+        txtMes = new JFormattedTextField();
+        adicionarComponente(txtMes, 9, 0);
+
+        label = new JLabel("Mes");
+        adicionarComponente(label, 10, 0);
+        txtAno = new JFormattedTextField();
+        adicionarComponente(txtAno, 11, 0);
+
 
         criarBotoes();
     }
@@ -117,7 +127,11 @@ public class PesquisaFormPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (PesquisaFormPanel.this.pesquisa == null) {
                     Pesquisa novaPesquisa = new Pesquisa();
+                    novaPesquisa.setIdCandidato(Integer.parseInt(txtFonte.getText()));
+                    novaPesquisa.setIntencaoVotos(Integer.parseInt(txtFonte.getText()));
                     novaPesquisa.setFontePesquisa(txtFonte.getText());
+                    novaPesquisa.setMesPesquisa(Integer.parseInt(txtFonte.getText()));
+                    novaPesquisa.setAnoPesquisa(Integer.parseInt(txtFonte.getText()));
 
                     PesquisaStorage.inserir(novaPesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
@@ -128,8 +142,8 @@ public class PesquisaFormPanel extends JPanel {
                     pesquisa.setFontePesquisa(txtFonte.getText());
                     PesquisaStorage.atualizar(PesquisaFormPanel.this.pesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
-                                                  "Pesquisa atualizada com sucesso", 
-                                                  "Todo App", 
+                                                  "Pesquisa atualizada com sucesso",
+                                                  "Todo App",
                                                   JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -170,7 +184,7 @@ public class PesquisaFormPanel extends JPanel {
         add(componente);
     }
 
-    private void formatCampo () {
+    /*private void formatCampo () {
         try {
             MaskFormatter mask = new MaskFormatter("##");
             mask.install(txtDia);
@@ -179,6 +193,6 @@ public class PesquisaFormPanel extends JPanel {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 } // fim da classe TarefaFormPanel
