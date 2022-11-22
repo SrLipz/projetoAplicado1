@@ -2,7 +2,7 @@ public class Candidato {
     
     private int idCandidato;
     private String nomeCandidato;
-    private String numeroCandidato;
+    private int numeroCandidato;
     private String partidoCandidato;
 
     public int getIdCandidato() {
@@ -21,11 +21,11 @@ public class Candidato {
         this.nomeCandidato = nomeCandidato;
     }
 
-    public String getNumeroCandidato() {
+    public int getNumeroCandidato() {
         return numeroCandidato;
     }
 
-    public void setNumeroCandidato(String numeroCandidato) {
+    public void setNumeroCandidato(int numeroCandidato) {
         this.numeroCandidato = numeroCandidato;
     }
 

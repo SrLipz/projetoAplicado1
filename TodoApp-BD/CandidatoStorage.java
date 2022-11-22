@@ -25,7 +25,7 @@ public class CandidatoStorage {
 
             statement = conexao.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, candidato.getNomeCandidato());
-            statement.setString(2, candidato.getNumeroCandidato());
+            statement.setInt(2, candidato.getNumeroCandidato());
             statement.setString(3, candidato.getPartidoCandidato());
             statement.execute();
 
@@ -70,7 +70,7 @@ public class CandidatoStorage {
 
             statement = conexao.prepareStatement(query);
             statement.setString(1, candidato.getNomeCandidato());
-            statement.setString(2, candidato.getNumeroCandidato());
+            statement.setInt(2, candidato.getNumeroCandidato());
             statement.setString(3, candidato.getPartidoCandidato());
             statement.setInt(4, candidato.getIdCandidato());
             statement.execute();
@@ -143,7 +143,7 @@ public class CandidatoStorage {
                 Candidato candidato = new Candidato();
                 candidato.setIdCandidato(resultSet.getInt("idCandidato"));
                 candidato.setNomeCandidato(resultSet.getString("NomeCandidato"));
-                candidato.setNumeroCandidato(resultSet.getString("NumeroPartido"));
+                candidato.setNumeroCandidato(resultSet.getInt("NumeroPartido"));
                 candidato.setPartidoCandidato(resultSet.getString("SiglaPartido"));
 
                 candidatos.add(candidato);

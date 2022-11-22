@@ -49,7 +49,7 @@ public class CandidatoFormPanel extends JPanel {
                 } else {
                     txtId.setText(Integer.toString(candidato.getIdCandidato()));
                     txtNome.setText(candidato.getNomeCandidato());
-                    txtNumero.setText(candidato.getNumeroCandidato());
+                    txtNumero.setText(Integer.toString(candidato.getNumeroCandidato()));
                     txtPartido.setText(candidato.getPartidoCandidato());
                 }
             }
@@ -111,7 +111,7 @@ public class CandidatoFormPanel extends JPanel {
                 if (CandidatoFormPanel.this.candidato == null) {
                     Candidato novoCandidato = new Candidato();
                     novoCandidato.setNomeCandidato(txtNome.getText());
-                    novoCandidato.setNumeroCandidato(txtNumero.getText());
+                    novoCandidato.setNumeroCandidato(Integer.parseInt(txtNumero.getText()));
                     novoCandidato.setPartidoCandidato(txtPartido.getText());
 
                     CandidatoStorage.inserir(novoCandidato);
@@ -121,7 +121,7 @@ public class CandidatoFormPanel extends JPanel {
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     candidato.setNomeCandidato(txtNome.getText());
-                    candidato.setNumeroCandidato(txtNumero.getText());
+                    candidato.setNumeroCandidato(Integer.parseInt(txtNumero.getText()));
                     candidato.setPartidoCandidato(txtPartido.getText());
                     CandidatoStorage.atualizar(CandidatoFormPanel.this.candidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
@@ -183,4 +183,5 @@ public class CandidatoFormPanel extends JPanel {
             e.printStackTrace();
         }
     }
+
 } // fim da classe TarefaFormPanel

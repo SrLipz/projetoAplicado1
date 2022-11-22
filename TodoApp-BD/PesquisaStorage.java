@@ -14,7 +14,7 @@ public class PesquisaStorage {
         //tarefa.setId(incremento++);
         //tarefas.add(tarefa);
 
-        String query = "INSERT INTO pesquisa (DataPesquisa, FontePesquisa) VALUES (?, ?)";
+        String query = "INSERT INTO pesquisa (FontePesquisa) VALUES (?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -24,8 +24,7 @@ public class PesquisaStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, pesquisa.getDataPesquisa());
-            statement.setString(2, pesquisa.getFontePesquisa());
+            statement.setString(1, pesquisa.getFontePesquisa());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
@@ -59,7 +58,7 @@ public class PesquisaStorage {
         //    tarefas.set(idx, tarefa);
         //}
 
-        String query = "UPDATE pesquisa SET DataPesquisa = ?, FontePesquisa = ? WHERE idPesquisa = ?";
+        String query = "UPDATE pesquisa SET FontePesquisa = ? WHERE idPesquisa = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -68,9 +67,8 @@ public class PesquisaStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query);
-            statement.setString(1, pesquisa.getDataPesquisa());
-            statement.setString(2, pesquisa.getFontePesquisa());
-            statement.setInt(3, pesquisa.getIdPesquisa());
+            statement.setString(1, pesquisa.getFontePesquisa());
+            statement.setInt(2, pesquisa.getIdPesquisa());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -140,7 +138,6 @@ public class PesquisaStorage {
             while (resultSet.next()) {
                 Pesquisa pesquisa = new Pesquisa();
                 pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
-                pesquisa.setDataPesquisa(resultSet.getString("DataPesquisa"));
                 pesquisa.setFontePesquisa(resultSet.getString("FontePesquisa"));
 
                 pesquisas.add(pesquisa);

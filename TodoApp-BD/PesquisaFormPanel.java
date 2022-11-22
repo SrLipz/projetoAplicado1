@@ -8,6 +8,7 @@ import java.awt.event.ComponentEvent;
 import java.text.ParseException;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -20,13 +21,17 @@ public class PesquisaFormPanel extends JPanel {
     private AppFrame frame;
 
     private Pesquisa pesquisa;
+    private IntencaoVotos intencao;
 
     private GridBagLayout layout;
     private GridBagConstraints constraints;
 
     private JTextField txtId;
-    private JFormattedTextField txtData;
+    private JFormattedTextField txtDia;
+    private JFormattedTextField txtMes;
     private JTextField txtFonte;
+    private JTextField txtCandidato;
+    private JFormattedTextField txtIntencao;
     private JButton btnSalvar;
     private JButton btnCancelar;
 
@@ -42,11 +47,9 @@ public class PesquisaFormPanel extends JPanel {
             public void componentShown(ComponentEvent e) {
                 if (pesquisa == null) {
                     txtId.setText("");
-                    txtData.setText("");
                     txtFonte.setText("");
                 } else {
                     txtId.setText(Integer.toString(pesquisa.getIdPesquisa()));
-                    txtData.setText(pesquisa.getDataPesquisa());
                     txtFonte.setText(pesquisa.getFontePesquisa());
                 }
             }
@@ -70,15 +73,30 @@ public class PesquisaFormPanel extends JPanel {
         txtId.setEditable(false);
         adicionarComponente(txtId, 1, 0);
 
-        label = new JLabel("Data");
-        adicionarComponente(label, 2, 0);
-        txtData = new JFormattedTextField();
-        adicionarComponente(txtData, 3, 0);
-
         label = new JLabel("Fonte");
+        adicionarComponente(label, 2, 0);
+        txtFonte = new JTextField();
+        adicionarComponente(txtFonte, 3, 0);
+
+        label = new JLabel("Dia");
         adicionarComponente(label, 4, 0);
-        txtFonte = new JTextField(30);
-        adicionarComponente(txtFonte, 5, 0);
+        txtDia = new JFormattedTextField();
+        adicionarComponente(txtDia, 5, 0);
+
+        label = new JLabel("Mes");
+        adicionarComponente(label, 6, 0);
+        txtMes = new JFormattedTextField();
+        adicionarComponente(txtMes, 7, 0);
+
+        label = new JLabel("Candidato");
+        adicionarComponente(label, 8, 0);
+        txtCandidato = new JTextField(30);
+        adicionarComponente(txtCandidato, 9, 0);
+
+        label = new JLabel("Intencao");
+        adicionarComponente(label, 10, 0);
+        txtIntencao = new JFormattedTextField();
+        adicionarComponente(txtIntencao, 11, 0);
 
         criarBotoes();
     }
@@ -91,7 +109,7 @@ public class PesquisaFormPanel extends JPanel {
         criarBtnSalvar(btnPanel);
         criarBtnCancelar(btnPanel);
 
-        adicionarComponente(btnPanel, 6, 0, 2, 1);
+        adicionarComponente(btnPanel, 12, 0, 2, 1);
     }
 
     private void criarBtnSalvar(JPanel btnPanel) {
@@ -101,7 +119,6 @@ public class PesquisaFormPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (PesquisaFormPanel.this.pesquisa == null) {
                     Pesquisa novaPesquisa = new Pesquisa();
-                    novaPesquisa.setDataPesquisa(txtData.getText());
                     novaPesquisa.setFontePesquisa(txtFonte.getText());
 
                     PesquisaStorage.inserir(novaPesquisa);
@@ -110,7 +127,6 @@ public class PesquisaFormPanel extends JPanel {
                                                   "Todo App", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    pesquisa.setDataPesquisa(txtData.getText());
                     pesquisa.setFontePesquisa(txtFonte.getText());
                     PesquisaStorage.atualizar(PesquisaFormPanel.this.pesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
@@ -158,8 +174,10 @@ public class PesquisaFormPanel extends JPanel {
 
     private void formatCampo () {
         try {
-            MaskFormatter mask = new MaskFormatter("##-##-####");
-            mask.install(txtData);
+            MaskFormatter mask = new MaskFormatter("##");
+            mask.install(txtDia);
+            mask.install(txtMes);
+            mask.install(txtIntencao);
         } catch (ParseException e) {
             e.printStackTrace();
         }

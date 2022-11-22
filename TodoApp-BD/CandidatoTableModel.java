@@ -47,7 +47,7 @@ public class CandidatoTableModel extends AbstractTableModel {
             value = candidato.getNomeCandidato();
             break;
         case 2:
-            value = candidato.getNumeroCandidato();
+            value = Integer.toString(candidato.getNumeroCandidato());
             break;
         case 3:
             value = candidato.getPartidoCandidato();

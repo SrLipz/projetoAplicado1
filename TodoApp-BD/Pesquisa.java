@@ -1,7 +1,6 @@
 public class Pesquisa {
     
     private int idPesquisa;
-    private String dataPesquisa;
     private String fontePesquisa;
 
     public int getIdPesquisa() {
@@ -12,13 +11,6 @@ public class Pesquisa {
         this.idPesquisa = idPesquisa;
     }
 
-    public String getDataPesquisa() {
-        return dataPesquisa;
-    }
-
-    public void setDataPesquisa(String dataPesquisa) {
-        this.dataPesquisa = dataPesquisa;
-    }
 
     public String getFontePesquisa() {
         return fontePesquisa;
@@ -44,7 +36,7 @@ public class Pesquisa {
         }
 
         Pesquisa outraPesquisa = (Pesquisa) obj;
-        return idPesquisa == outraPesquisa.getIdPesquisa();
+        return idPesquisa == outraPesquisa.getIdPesquisa() ;
     }
     
 } // fim da classe Tarefa
