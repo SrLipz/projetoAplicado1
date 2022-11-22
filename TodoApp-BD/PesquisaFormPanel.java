@@ -8,7 +8,6 @@ import java.awt.event.ComponentEvent;
 import java.text.ParseException;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -21,16 +20,15 @@ public class PesquisaFormPanel extends JPanel {
     private AppFrame frame;
 
     private Pesquisa pesquisa;
-    private IntencaoVotos intencao;
 
     private GridBagLayout layout;
     private GridBagConstraints constraints;
 
-    private JTextField txtId;
+    private JTextField txtIdPesquisa;
+    private JTextField txtIdCandidato;
     private JFormattedTextField txtDia;
     private JFormattedTextField txtMes;
     private JTextField txtFonte;
-    private JTextField txtCandidato;
     private JFormattedTextField txtIntencao;
     private JButton btnSalvar;
     private JButton btnCancelar;
@@ -46,10 +44,10 @@ public class PesquisaFormPanel extends JPanel {
             @Override
             public void componentShown(ComponentEvent e) {
                 if (pesquisa == null) {
-                    txtId.setText("");
+                    txtIdPesquisa.setText("");
                     txtFonte.setText("");
                 } else {
-                    txtId.setText(Integer.toString(pesquisa.getIdPesquisa()));
+                    txtIdPesquisa.setText(Integer.toString(pesquisa.getIdPesquisa()));
                     txtFonte.setText(pesquisa.getFontePesquisa());
                 }
             }
@@ -69,9 +67,9 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("ID");
         adicionarComponente(label, 0, 0);
-        txtId = new JTextField(5);
-        txtId.setEditable(false);
-        adicionarComponente(txtId, 1, 0);
+        txtIdPesquisa = new JTextField(5);
+        txtIdPesquisa.setEditable(false);
+        adicionarComponente(txtIdPesquisa, 1, 0);
 
         label = new JLabel("Fonte");
         adicionarComponente(label, 2, 0);
@@ -90,8 +88,8 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("Candidato");
         adicionarComponente(label, 8, 0);
-        txtCandidato = new JTextField(30);
-        adicionarComponente(txtCandidato, 9, 0);
+        txtIdCandidato = new JTextField(30);
+        adicionarComponente(txtIdCandidato, 9, 0);
 
         label = new JLabel("Intencao");
         adicionarComponente(label, 10, 0);
