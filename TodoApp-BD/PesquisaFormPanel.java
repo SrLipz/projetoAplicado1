@@ -81,7 +81,7 @@ public class PesquisaFormPanel extends JPanel {
         adicionarComponente(txtIdPesquisa, 1, 0);
 
         label = new JLabel("Candidato");
-        adicionarComponente(label, 3, 0);
+        adicionarComponente(label, 2, 0);
         txtIdCandidato = new JTextField(30);
         adicionarComponente(txtIdCandidato, 3, 0);
 
@@ -127,11 +127,11 @@ public class PesquisaFormPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (PesquisaFormPanel.this.pesquisa == null) {
                     Pesquisa novaPesquisa = new Pesquisa();
-                    novaPesquisa.setIdCandidato(Integer.parseInt(txtFonte.getText()));
-                    novaPesquisa.setIntencaoVotos(Integer.parseInt(txtFonte.getText()));
+                    novaPesquisa.setIdCandidato(Integer.parseInt(txtIdCandidato.getText()));
+                    novaPesquisa.setIntencaoVotos(Integer.parseInt(txtIntencao.getText()));
                     novaPesquisa.setFontePesquisa(txtFonte.getText());
-                    novaPesquisa.setMesPesquisa(Integer.parseInt(txtFonte.getText()));
-                    novaPesquisa.setAnoPesquisa(Integer.parseInt(txtFonte.getText()));
+                    novaPesquisa.setMesPesquisa(Integer.parseInt(txtMes.getText()));
+                    novaPesquisa.setAnoPesquisa(Integer.parseInt(txtAno.getText()));
 
                     PesquisaStorage.inserir(novaPesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 

@@ -5,8 +5,12 @@ import javax.swing.table.AbstractTableModel;
 
 public class PesquisaTableModel extends AbstractTableModel {
     private List<Pesquisa> pesquisas = new ArrayList<>();
-    private String[] colunas = new String[]{"ID", 
-                                            "Fonte"};
+    private String[] colunas = new String[]{"idPesquisa",
+                                            "idCandidato",
+                                            "Intencao",
+                                            "Fonte",
+                                            "Mes",
+                                            "Ano"};
 
     public PesquisaTableModel(List<Pesquisa> pesquisas) {
         this.pesquisas = pesquisas;
@@ -42,7 +46,19 @@ public class PesquisaTableModel extends AbstractTableModel {
             value = Integer.toString(pesquisa.getIdPesquisa());
             break;
         case 1:
+            value = Integer.toString(pesquisa.getIdCandidato());
+            break;
+        case 2:
+            value = Integer.toString(pesquisa.getIntencaoVotos());
+            break;
+        case 3:
             value = pesquisa.getFontePesquisa();
+            break;
+        case 4:
+            value = Integer.toString(pesquisa.getMesPesquisa());
+            break;
+        case 5:
+            value = Integer.toString(pesquisa.getAnoPesquisa());
             break;
         default:
             System.err.printf("[ERRO] Indice de coluna invalido: %d%n", 
