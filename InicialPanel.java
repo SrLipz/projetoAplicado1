@@ -66,7 +66,7 @@ public class InicialPanel extends JPanel {
         btnDesempenho.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarDesemepenhoFormPanel();
+                frame.mostrarDesempenhoListPanel();
             }
         });
     }
