@@ -109,7 +109,7 @@ public class DesempenhoFormPanel extends JPanel {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarPesquisaListPanel();
+                frame.mostrarDesempenhoListPanel();
             }
         });
         btnPanel.add(btnCancelar);
