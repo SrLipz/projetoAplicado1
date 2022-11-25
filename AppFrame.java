@@ -84,7 +84,7 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarDesempenhoListPanel() {
-        pesquisaPanel.recarregar();
+        desempenhoListPanel.recarregar();
         cardLayout.show(cardPanel, DesempenhoListPanel.class.getName());
     }
 
