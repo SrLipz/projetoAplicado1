@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a1d943f1-9c54-4c70-bf7a-c07f99513faa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AppFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Candidato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CandidatoFormPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CandidatoListPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CandidatoStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CandidatoTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConexaoFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DesempenhoFormPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../InicialPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IntencaoStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IntencaoVotos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pesquisa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PesquisaFormPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PesquisaListPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PesquisaStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PesquisaTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TodoApp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesempenhoFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/DesempenhoFormPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TodoApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/.comandos_docker.txt.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/comandos_docker.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/comandos_java.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/comandos_mysql.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/mysql-connector-j-8.0.31.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HvfDp0b8yYeomR1w7SRm1kD8w3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Rique/Documents/GitHub/projetoAplicado1/TodoApp-BD"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1d943f1-9c54-4c70-bf7a-c07f99513faa" name="Changes" comment="" />
+      <created>1669170360756</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669170360756</updated>
+      <workItem from="1669170363016" duration="106000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

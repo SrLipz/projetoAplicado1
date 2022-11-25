@@ -12,7 +12,8 @@ public class AppFrame extends JFrame {
     private InicialPanel inicialPanel;
     private PesquisaListPanel pesquisaPanel;
     private PesquisaFormPanel pesquisaForm;
-    private DesempenhoFormPanel desempenhoPanel;
+    private DesempenhoFormPanel desempenhoFormPanel;
+    private DesempenhoListPanel desempenhoListPanel;
 
     public AppFrame() {
         super("Todo App");
@@ -50,8 +51,11 @@ public class AppFrame extends JFrame {
         candidatoFormPanel = new CandidatoFormPanel(this);
         cardPanel.add(candidatoFormPanel, CandidatoFormPanel.class.getName());
 
-        desempenhoPanel = new DesempenhoFormPanel(this);
-        cardPanel.add(desempenhoPanel, DesempenhoFormPanel.class.getName());
+        desempenhoFormPanel = new DesempenhoFormPanel(this);
+        cardPanel.add(desempenhoFormPanel, DesempenhoFormPanel.class.getName());
+
+        desempenhoListPanel = new DesempenhoListPanel(this);
+        cardPanel.add(desempenhoListPanel, DesempenhoListPanel.class.getName());
 
     }
 
@@ -79,7 +83,13 @@ public class AppFrame extends JFrame {
         cardLayout.show(cardPanel, PesquisaFormPanel.class.getName());
     }
 
-    public void mostrarDesemepenhoFormPanel () {
+    public void mostrarDesempenhoListPanel() {
+        pesquisaPanel.recarregar();
+        cardLayout.show(cardPanel, DesempenhoListPanel.class.getName());
+    }
+
+    public void mostrarDesemepenhoFormPanel (Pesquisa pesquisa) {
+        pesquisaForm.setFontePesquisa(pesquisa);
         cardLayout.show(cardPanel, DesempenhoFormPanel.class.getName());
     }
 
