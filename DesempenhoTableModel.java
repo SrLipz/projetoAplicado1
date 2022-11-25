@@ -5,8 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class DesempenhoTableModel extends AbstractTableModel {
     private List<Pesquisa> pesquisas = new ArrayList<>();
-    private String[] colunas = new String[]{"idPesquisa",
-                                            "Candidato",
+    private String[] colunas = new String[]{"Candidato",
                                             "Intencao",
                                             "Fonte",
                                             "Mes",
@@ -43,21 +42,18 @@ public class DesempenhoTableModel extends AbstractTableModel {
 
         switch (colIdx) {
         case 0:
-            value = Integer.toString(pesquisa.getIdPesquisa());
-            break;
-        case 1:
             value = Integer.toString(pesquisa.getIdCandidato());
             break;
-        case 2:
+        case 1:
             value = Integer.toString(pesquisa.getIntencaoVotos());
             break;
-        case 3:
+        case 2:
             value = pesquisa.getFontePesquisa();
             break;
-        case 4:
+        case 3:
             value = Integer.toString(pesquisa.getMesPesquisa());
             break;
-        case 5:
+        case 4:
             value = Integer.toString(pesquisa.getAnoPesquisa());
             break;
         default:
