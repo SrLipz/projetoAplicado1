@@ -65,7 +65,7 @@ public class CandidatoTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public Candidato getNomeCandidato(int rowIdx) {
+    public Candidato getCandidato(int rowIdx) {
         Candidato candidato = null;
 
         candidato = candidatos.get(rowIdx);

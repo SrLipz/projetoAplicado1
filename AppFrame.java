@@ -60,7 +60,7 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarCandidatoFormPanel(Candidato candidato) {
-        candidatoFormPanel.setNomeCandidato(candidato);
+        candidatoFormPanel.setCandidato(candidato);
         cardLayout.show(cardPanel, CandidatoFormPanel.class.getName());
     }
 
@@ -79,7 +79,7 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarPesquisaForm(Pesquisa pesquisa) {
-        pesquisaForm.setFontePesquisa(pesquisa);
+        pesquisaForm.setPesquisa(pesquisa);
         cardLayout.show(cardPanel, PesquisaFormPanel.class.getName());
     }
 
@@ -89,7 +89,7 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarDesemepenhoFormPanel (Pesquisa pesquisa) {
-        pesquisaForm.setFontePesquisa(pesquisa);
+        pesquisaForm.setPesquisa(pesquisa);
         cardLayout.show(cardPanel, DesempenhoFormPanel.class.getName());
     }
 

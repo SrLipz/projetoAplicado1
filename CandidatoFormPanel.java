@@ -59,7 +59,7 @@ public class CandidatoFormPanel extends JPanel {
         formatCampo();
     }
 
-    public void setNomeCandidato(Candidato candidato) {
+    public void setCandidato(Candidato candidato) {
         this.candidato = candidato;
     }
 

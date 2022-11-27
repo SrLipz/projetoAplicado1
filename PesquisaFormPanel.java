@@ -65,7 +65,7 @@ public class PesquisaFormPanel extends JPanel {
         
     }
 
-    public void setFontePesquisa(Pesquisa pesquisa) {
+    public void setPesquisa(Pesquisa pesquisa) {
         this.pesquisa = pesquisa;
     }
 

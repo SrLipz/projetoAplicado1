@@ -70,7 +70,7 @@ public class PesquisaListPanel extends JPanel {
         btnEditar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarPesquisaForm(tableModel.getFontePesquisa(tabela.getSelectedRow()));
+                frame.mostrarPesquisaForm(tableModel.getPesquisa(tabela.getSelectedRow()));
             }
         });
     }
@@ -80,7 +80,7 @@ public class PesquisaListPanel extends JPanel {
         btnRemover.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Pesquisa pesquisa = tableModel.getFontePesquisa(tabela.getSelectedRow());
+                Pesquisa pesquisa = tableModel.getPesquisa(tabela.getSelectedRow());
                 int resposta = JOptionPane.showConfirmDialog(PesquisaListPanel.this, "Deseja realmente remover?", "Todo App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     PesquisaStorage.remover(pesquisa);

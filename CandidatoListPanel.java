@@ -68,7 +68,7 @@ public class CandidatoListPanel extends JPanel {
         btnEditar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarCandidatoFormPanel(tableModel.getNomeCandidato(tabela.getSelectedRow()));
+                frame.mostrarCandidatoFormPanel(tableModel.getCandidato(tabela.getSelectedRow()));
             }
         });
     }
@@ -78,7 +78,7 @@ public class CandidatoListPanel extends JPanel {
         btnRemover.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Candidato candidato = tableModel.getNomeCandidato(tabela.getSelectedRow());
+                Candidato candidato = tableModel.getCandidato(tabela.getSelectedRow());
                 int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover?", "Todo App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     CandidatoStorage.remover(candidato);

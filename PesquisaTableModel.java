@@ -73,7 +73,7 @@ public class PesquisaTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public Pesquisa getFontePesquisa(int rowIdx) {
+    public Pesquisa getPesquisa(int rowIdx) {
         Pesquisa pesquisa = null;
 
         pesquisa = pesquisas.get(rowIdx);
