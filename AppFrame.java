@@ -12,7 +12,6 @@ public class AppFrame extends JFrame {
     private InicialPanel inicialPanel;
     private PesquisaListPanel pesquisaPanel;
     private PesquisaFormPanel pesquisaForm;
-    private DesempenhoFormPanel desempenhoFormPanel;
     private DesempenhoListPanel desempenhoListPanel;
 
     public AppFrame() {
@@ -51,9 +50,6 @@ public class AppFrame extends JFrame {
         candidatoFormPanel = new CandidatoFormPanel(this);
         cardPanel.add(candidatoFormPanel, CandidatoFormPanel.class.getName());
 
-        desempenhoFormPanel = new DesempenhoFormPanel(this);
-        cardPanel.add(desempenhoFormPanel, DesempenhoFormPanel.class.getName());
-
         desempenhoListPanel = new DesempenhoListPanel(this);
         cardPanel.add(desempenhoListPanel, DesempenhoListPanel.class.getName());
 
@@ -84,13 +80,8 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarDesempenhoListPanel() {
-        //desempenhoListPanel.recarregar();
+        desempenhoListPanel.recarregar();
         cardLayout.show(cardPanel, DesempenhoListPanel.class.getName());
-    }
-
-    public void mostrarDesemepenhoFormPanel (Pesquisa pesquisa) {
-        pesquisaForm.setPesquisa(pesquisa);
-        cardLayout.show(cardPanel, DesempenhoFormPanel.class.getName());
     }
 
 } // fim da classe AppFrame

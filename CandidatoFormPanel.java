@@ -111,7 +111,6 @@ public class CandidatoFormPanel extends JPanel {
                     novoCandidato.setNomeCandidato(txtNome.getText());
                     novoCandidato.setNumeroCandidato(Integer.parseInt(txtNumero.getText()));
                     novoCandidato.setPartidoCandidato(txtPartido.getText());
-
                     CandidatoStorage.inserir(novoCandidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
                                                   "Candidato incluido com sucesso", 
