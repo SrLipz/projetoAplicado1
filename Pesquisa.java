@@ -73,4 +73,4 @@ public class Pesquisa {
         return idPesquisa == outraPesquisa.getIdPesquisa() ;
     }
     
-} // fim da classe Tarefa
+} // fim da classe Pesquisa

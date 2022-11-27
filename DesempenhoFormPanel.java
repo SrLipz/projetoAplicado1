@@ -19,8 +19,6 @@ import javax.swing.JTextField;
 public class DesempenhoFormPanel extends JPanel {
     private AppFrame frame;
 
-    private Pesquisa pesquisa;
-
     private GridBagLayout layout;
     private GridBagConstraints constraints;
 
@@ -38,20 +36,11 @@ public class DesempenhoFormPanel extends JPanel {
         addComponentListener(new ComponentAdapter() {
             @Override
             public void componentShown(ComponentEvent e) {
-                if (pesquisa == null) {
-                    txtIdCandidato.setText("");
-                    
-                } else {
-                    txtIdCandidato.setText(Integer.toString(pesquisa.getIdCandidato()));
-                }
+                txtIdCandidato.setText("");
             }
         });
 
         criarForm();        
-    }
-
-    public void setFontePesquisa(Pesquisa pesquisa) {
-        this.pesquisa = pesquisa;
     }
 
     private void criarForm() {
@@ -78,29 +67,7 @@ public class DesempenhoFormPanel extends JPanel {
 
     private void criarBtnPesquisar(JPanel btnPanel) {
         btnPesquisar = new JButton("Pesquisar");
-        btnPesquisar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (DesempenhoFormPanel.this.pesquisa == null) {
-                    Pesquisa novaPesquisa = new Pesquisa();
-                    novaPesquisa.setIdCandidato(Integer.parseInt(txtIdCandidato.getText()));
-                    PesquisaStorage.inserir(novaPesquisa);
-                    JOptionPane.showMessageDialog(DesempenhoFormPanel.this, 
-                                                  "Pesquisa incluida com sucesso", 
-                                                  "Todo App", 
-                                                  JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    PesquisaStorage.atualizar(DesempenhoFormPanel.this.pesquisa);
-                    JOptionPane.showMessageDialog(DesempenhoFormPanel.this, 
-                                                  "Pesquisa atualizada com sucesso",
-                                                  "Todo App",
-                                                  JOptionPane.INFORMATION_MESSAGE);
-                }
 
-                    
-                frame.mostrarPesquisaListPanel();
-            }
-        });
         btnPanel.add(btnPesquisar);
     }
 
@@ -111,6 +78,7 @@ public class DesempenhoFormPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 frame.mostrarDesempenhoListPanel();
             }
+            
         });
         btnPanel.add(btnCancelar);
     }

@@ -80,4 +80,4 @@ public class PesquisaTableModel extends AbstractTableModel {
 
         return pesquisa;
     }
-} // fim da classe TarefaTableModel
+} // fim da classe PesquisaTableModel

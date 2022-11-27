@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.text.ParseException;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -14,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.text.MaskFormatter;
 
 public class PesquisaFormPanel extends JPanel {
     private AppFrame frame;
@@ -76,7 +74,7 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("ID");
         adicionarComponente(label, 0, 0);
-        txtIdPesquisa = new JTextField(5);
+        txtIdPesquisa = new JTextField(30);
         txtIdPesquisa.setEditable(false);
         adicionarComponente(txtIdPesquisa, 1, 0);
 
@@ -92,15 +90,15 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("Fonte");
         adicionarComponente(label, 6, 0);
-        txtFonte = new JTextField();
+        txtFonte = new JTextField(30);
         adicionarComponente(txtFonte, 7, 0);
 
-        label = new JLabel("Dia");
+        label = new JLabel("Mes");
         adicionarComponente(label, 8, 0);
         txtMes = new JFormattedTextField();
         adicionarComponente(txtMes, 9, 0);
 
-        label = new JLabel("Mes");
+        label = new JLabel("Ano");
         adicionarComponente(label, 10, 0);
         txtAno = new JFormattedTextField();
         adicionarComponente(txtAno, 11, 0);
@@ -139,7 +137,11 @@ public class PesquisaFormPanel extends JPanel {
                                                   "Todo App", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
+                    pesquisa.setIdCandidato(Integer.parseInt(txtIdCandidato.getText()));
+                    pesquisa.setIntencaoVotos(Integer.parseInt(txtIntencao.getText()));
                     pesquisa.setFontePesquisa(txtFonte.getText());
+                    pesquisa.setMesPesquisa(Integer.parseInt(txtMes.getText()));
+                    pesquisa.setAnoPesquisa(Integer.parseInt(txtAno.getText()));
                     PesquisaStorage.atualizar(PesquisaFormPanel.this.pesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
                                                   "Pesquisa atualizada com sucesso",
@@ -195,4 +197,4 @@ public class PesquisaFormPanel extends JPanel {
         }
     }*/
 
-} // fim da classe TarefaFormPanel
+} // fim da classe PesquisaFormPanel

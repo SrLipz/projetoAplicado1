@@ -54,5 +54,5 @@ public class Candidato {
         Candidato outroCandidato = (Candidato) obj;
         return idCandidato == outroCandidato.getIdCandidato();
     }
-    
-} // fim da classe Tarefa
+
+} // fim da classe Candidato

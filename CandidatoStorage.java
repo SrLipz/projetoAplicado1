@@ -166,4 +166,4 @@ public class CandidatoStorage {
 
         return candidatos;
     }
-} // fim da classe TarefaStorage
+} // fim da classe CandidatoStorage

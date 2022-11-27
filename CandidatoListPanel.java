@@ -135,4 +135,4 @@ public class CandidatoListPanel extends JPanel {
     public void recarregar() {
         tableModel.carregar(CandidatoStorage.listar());
     }
-} // fim da classe TarefaListPanel
+} // fim da classe CandidatoListPanel

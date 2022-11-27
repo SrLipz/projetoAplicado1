@@ -99,8 +99,6 @@ public class CandidatoFormPanel extends JPanel {
         criarBtnCancelar(btnPanel);
 
         adicionarComponente(btnPanel, 8, 0, 2, 1);
-
-        
     }
 
     private void criarBtnSalvar(JPanel btnPanel) {
@@ -148,14 +146,6 @@ public class CandidatoFormPanel extends JPanel {
         btnPanel.add(btnCancelar);
     }
 
-    private void habilitarBtns() {
-        btnSalvar.setEnabled(true);
-    }
-
-    private void desabilitarBtns() {
-        btnSalvar.setEnabled(false);
-    }
-
     private void adicionarComponente(JComponent componente, 
                                     int linha, int coluna) {
         adicionarComponente(componente, linha, coluna, 1, 1);
@@ -184,4 +174,4 @@ public class CandidatoFormPanel extends JPanel {
         }
     }
 
-} // fim da classe TarefaFormPanel
+} // fim da classe CandidatoFormPanel

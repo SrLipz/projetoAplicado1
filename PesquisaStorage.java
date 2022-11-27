@@ -148,9 +148,9 @@ public class PesquisaStorage {
                 pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
                 pesquisa.setIdCandidato(resultSet.getInt("idCandidato"));
                 pesquisa.setIntencaoVotos(resultSet.getInt("intencaoVotos"));
-                pesquisa.setFontePesquisa(resultSet.getString("FontePesquisa"));
-                pesquisa.setMesPesquisa(resultSet.getInt("intencaoVotos"));
-                pesquisa.setAnoPesquisa(resultSet.getInt("intencaoVotos"));
+                pesquisa.setFontePesquisa(resultSet.getString("fontePesquisa"));
+                pesquisa.setMesPesquisa(resultSet.getInt("mesPesquisa"));
+                pesquisa.setAnoPesquisa(resultSet.getInt("anoPesquisa"));
 
                 pesquisas.add(pesquisa);
             }
@@ -172,4 +172,53 @@ public class PesquisaStorage {
 
         return pesquisas;
     }
-} // fim da classe TarefaStorage
+
+    public static List<Pesquisa> listar(int candidato) {
+        //return tarefas;
+
+        List<Pesquisa> pesquisas = new ArrayList<>();
+
+        String query = "SELECT * FROM pesquisa WHERE idCandidato = " + candidato + " ORDER BY mesPesquisa, anoPesquisa";
+
+        Connection conexao = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            conexao = ConexaoFactory.getConexao();
+
+            statement = conexao.createStatement();
+
+            resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                Pesquisa pesquisa = new Pesquisa();
+                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
+                pesquisa.setIdCandidato(resultSet.getInt("idCandidato"));
+                pesquisa.setIntencaoVotos(resultSet.getInt("intencaoVotos"));
+                pesquisa.setFontePesquisa(resultSet.getString("fontePesquisa"));
+                pesquisa.setMesPesquisa(resultSet.getInt("mesPesquisa"));
+                pesquisa.setAnoPesquisa(resultSet.getInt("anoPesquisa"));
+
+                pesquisas.add(pesquisa);
+            }
+        } catch (SQLException e ) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return pesquisas;
+    }
+
+} // fim da classe PesquisaStorage

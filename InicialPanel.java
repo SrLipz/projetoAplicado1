@@ -71,4 +71,4 @@ public class InicialPanel extends JPanel {
         });
     }
  
-}
+} // fim da classe InicialPanel

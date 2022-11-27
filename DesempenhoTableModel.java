@@ -76,4 +76,4 @@ public class DesempenhoTableModel extends AbstractTableModel {
 
         return pesquisa;
     }
-} // fim da classe TarefaTableModel
+} // fim da classe DesempenhoTableModel

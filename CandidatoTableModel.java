@@ -72,4 +72,4 @@ public class CandidatoTableModel extends AbstractTableModel {
 
         return candidato;
     }
-} // fim da classe TarefaTableModel
+} // fim da classe CandidatoTableModel
