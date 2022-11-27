@@ -50,7 +50,7 @@ public class DesempenhoListPanel extends JPanel {
 
     }
 
-    private void criarTxtPesquisa() {
+    /*private void criarTxtPesquisa() {
         txtPesquisa = new JTextField(34);
         txtPesquisa.addKeyListener(new KeyAdapter() {
             @Override
@@ -59,6 +59,22 @@ public class DesempenhoListPanel extends JPanel {
             }
         });
 
+    }*/
+
+    private void criarTxtPesquisa() {
+        txtPesquisa = new JTextField(34);
+        txtPesquisa.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                //rowSorter.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText()));
+                if (txtPesquisa.getText() != null) {
+                    tableModel.carregar(PesquisaStorage.listar(Integer.parseInt(txtPesquisa.getText())));
+                } 
+                if (txtPesquisa.getText() == null) {
+                    tableModel.carregar(PesquisaStorage.listar());
+                }
+            }
+        });
     }
 
     /*private void criarBtnPesquisar() {
@@ -87,8 +103,8 @@ public class DesempenhoListPanel extends JPanel {
 
         tableModel = new DesempenhoTableModel(PesquisaStorage.listar());
         tabela = new JTable(tableModel);
-        rowSorter = new TableRowSorter<>(tableModel);
-        tabela.setRowSorter(rowSorter);
+        //rowSorter = new TableRowSorter<>(tableModel);
+        //tabela.setRowSorter(rowSorter);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         JScrollPane scrollPane = new JScrollPane(tabela);
