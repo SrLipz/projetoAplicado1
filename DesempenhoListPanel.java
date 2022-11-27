@@ -2,20 +2,28 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+
 
 public class DesempenhoListPanel extends JPanel {
     private AppFrame frame;
 
     private JButton btnPesquisar;
+    private JTextField txtPesquisa;
     private JButton btnVoltar;
     private JTable tabela;
     private DesempenhoTableModel tableModel;
+    private TableRowSorter<DesempenhoTableModel> rowSorter;
 
 
     public DesempenhoListPanel(AppFrame frame) {
@@ -32,8 +40,8 @@ public class DesempenhoListPanel extends JPanel {
         FlowLayout layout = (FlowLayout) panel.getLayout();
         layout.setAlignment(FlowLayout.LEFT);
 
-        criarBtnPesquisar();
-        panel.add(btnPesquisar);
+        criarTxtPesquisa();
+        panel.add(txtPesquisa);
 
         criarBtnVoltar();
         panel.add(btnVoltar);
@@ -42,7 +50,18 @@ public class DesempenhoListPanel extends JPanel {
 
     }
 
-    private void criarBtnPesquisar() {
+    private void criarTxtPesquisa() {
+        txtPesquisa = new JTextField(34);
+        txtPesquisa.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                rowSorter.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText()));
+            }
+        });
+
+    }
+
+    /*private void criarBtnPesquisar() {
         btnPesquisar = new JButton("Pesquisar");
         btnPesquisar.addActionListener(new ActionListener() {
             @Override
@@ -50,7 +69,7 @@ public class DesempenhoListPanel extends JPanel {
                 frame.mostrarDesemepenhoFormPanel(null);
             }
         });
-    }
+    }*/
 
 
     private void criarBtnVoltar() {
@@ -68,6 +87,8 @@ public class DesempenhoListPanel extends JPanel {
 
         tableModel = new DesempenhoTableModel(PesquisaStorage.listar());
         tabela = new JTable(tableModel);
+        rowSorter = new TableRowSorter<>(tableModel);
+        tabela.setRowSorter(rowSorter);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         JScrollPane scrollPane = new JScrollPane(tabela);
