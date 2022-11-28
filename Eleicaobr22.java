@@ -14,4 +14,4 @@ public class Eleicaobr22 {
         AppFrame frame = new AppFrame();
         frame.mostrar();
     }
-} // fim da classe TodoApp
+} // fim da classe Eleicaobr22
