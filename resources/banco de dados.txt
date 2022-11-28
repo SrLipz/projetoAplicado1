@@ -1,0 +1,85 @@
+CREATE DATABASE  IF NOT EXISTS `projetoaplicado` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `projetoaplicado`;
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: projetoaplicado
+-- ------------------------------------------------------
+-- Server version	8.0.30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `candidato`
+--
+
+DROP TABLE IF EXISTS `candidato`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `candidato` (
+  `idCandidato` int NOT NULL AUTO_INCREMENT,
+  `NomeCandidato` varchar(45) NOT NULL,
+  `NumeroPartido` int NOT NULL,
+  `SiglaPartido` varchar(10) NOT NULL,
+  PRIMARY KEY (`idCandidato`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `candidato`
+--
+
+LOCK TABLES `candidato` WRITE;
+/*!40000 ALTER TABLE `candidato` DISABLE KEYS */;
+INSERT INTO `candidato` VALUES (1,'Lula',13,'PT'),(2,'Bolsonaro',22,'PL'),(3,'Ciro Gomes',12,'PDT');
+/*!40000 ALTER TABLE `candidato` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pesquisa`
+--
+
+DROP TABLE IF EXISTS `pesquisa`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pesquisa` (
+  `idPesquisa` int NOT NULL AUTO_INCREMENT,
+  `idCandidato` int NOT NULL,
+  `intencaoVotos` int NOT NULL,
+  `fontePesquisa` varchar(45) NOT NULL,
+  `mesPesquisa` int NOT NULL,
+  `anoPesquisa` int NOT NULL,
+  PRIMARY KEY (`idPesquisa`,`idCandidato`),
+  KEY `fk_pesquisa_candidato_idx` (`idCandidato`),
+  CONSTRAINT `fk_pesquisa_candidato` FOREIGN KEY (`idCandidato`) REFERENCES `candidato` (`idCandidato`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pesquisa`
+--
+
+LOCK TABLES `pesquisa` WRITE;
+/*!40000 ALTER TABLE `pesquisa` DISABLE KEYS */;
+INSERT INTO `pesquisa` VALUES (1,1,48,'G1',9,2022),(2,1,48,'G1',9,2022),(3,1,48,'G1',9,2022),(4,1,50,'G1',9,2022),(5,1,50,'G1',9,2022),(6,2,34,'G1',9,2022),(7,2,36,'G1',9,2022),(8,2,35,'G1',9,2022),(9,2,35,'G1',9,2022),(10,2,36,'G1',9,2022),(11,3,10,'G1',9,2022),(12,3,8,'G1',9,2022),(13,3,8,'G1',9,2022),(14,3,7,'G1',9,2022),(15,3,6,'G1',9,2022);
+/*!40000 ALTER TABLE `pesquisa` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-11-28 17:22:29
