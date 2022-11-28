@@ -114,7 +114,7 @@ public class CandidatoFormPanel extends JPanel {
                     CandidatoStorage.inserir(novoCandidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
                                                   "Candidato incluido com sucesso", 
-                                                  "Todo App", 
+                                                  "ELEICOES BRASIL 2022", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     candidato.setNomeCandidato(txtNome.getText());
@@ -123,7 +123,7 @@ public class CandidatoFormPanel extends JPanel {
                     CandidatoStorage.atualizar(CandidatoFormPanel.this.candidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
                                                   "Candidato atualizado com sucesso", 
-                                                  "Todo App", 
+                                                  "ELEICOES BRASIL 2022", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 }
 
