@@ -7,13 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CandidatoStorage {
-    //private static List<Tarefa> tarefas = new ArrayList<>();
-    //private static int incremento = 1;
 
     public static boolean inserir(Candidato candidato) {
-        //tarefa.setId(incremento++);
-        //tarefas.add(tarefa);
-
         String query = "INSERT INTO candidato (NomeCandidato, NumeroPartido, SiglaPartido) VALUES (?, ?, ?)";
 
         Connection conexao = null;
@@ -55,11 +50,6 @@ public class CandidatoStorage {
     }
 
     public static boolean atualizar(Candidato candidato) {
-        //int idx = tarefas.indexOf(tarefa);
-        //if (idx >= 0) {
-        //    tarefas.set(idx, tarefa);
-        //}
-
         String query = "UPDATE candidato SET NomeCandidato = ?, NumeroPartido = ?, SiglaPartido = ? WHERE idCandidato = ?";
 
         Connection conexao = null;
@@ -92,8 +82,6 @@ public class CandidatoStorage {
     }
 
     public static boolean remover(Candidato candidato) {
-        //tarefas.remove(tarefa);
-
         String query = "DELETE FROM candidato WHERE idCandidato = ?";
 
         Connection conexao = null;
@@ -123,8 +111,6 @@ public class CandidatoStorage {
     }
 
     public static List<Candidato> listar() {
-        //return tarefas;
-
         List<Candidato> candidatos = new ArrayList<>();
 
         String query = "SELECT * FROM candidato ORDER BY idCandidato";

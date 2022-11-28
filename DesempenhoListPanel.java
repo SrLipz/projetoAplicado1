@@ -11,10 +11,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-//import javax.swing.RowFilter;
-//import javax.swing.table.TableRowSorter;
-//import javax.swing.table.DefaultTableModel;
-
 
 public class DesempenhoListPanel extends JPanel {
     private AppFrame frame;
@@ -23,8 +19,6 @@ public class DesempenhoListPanel extends JPanel {
     private JButton btnVoltar;
     private JTable tabela;
     private DesempenhoTableModel tableModel;
-    //private TableRowSorter<DesempenhoTableModel> rowSorter;
-
 
     public DesempenhoListPanel(AppFrame frame) {
         this.frame = frame;
@@ -50,28 +44,15 @@ public class DesempenhoListPanel extends JPanel {
 
     }
 
-    /*private void criarTxtPesquisa() {
-        txtPesquisa = new JTextField(34);
-        txtPesquisa.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent e) {
-                rowSorter.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText()));
-            }
-        });
-
-    }*/
-
     private void criarTxtPesquisa() {
         txtPesquisa = new JTextField(34);
         txtPesquisa.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                //rowSorter.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText()));
                 if (txtPesquisa.getText() != null) {
-                    tableModel.carregar(PesquisaStorage.listar(Integer.parseInt(txtPesquisa.getText())));
+                    tableModel.carregar(DesempenhoStorage.listar(txtPesquisa.getText()));
                 }
             }
-            
         });
     }
 
@@ -88,10 +69,8 @@ public class DesempenhoListPanel extends JPanel {
     private void criarTabelaPanel() {
         JPanel panel = new JPanel();
 
-        tableModel = new DesempenhoTableModel(PesquisaStorage.listar());
+        tableModel = new DesempenhoTableModel(DesempenhoStorage.listar());
         tabela = new JTable(tableModel);
-        //rowSorter = new TableRowSorter<>(tableModel);
-        //tabela.setRowSorter(rowSorter);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         JScrollPane scrollPane = new JScrollPane(tabela);
@@ -101,6 +80,6 @@ public class DesempenhoListPanel extends JPanel {
     }
 
     public void recarregar() {
-        tableModel.carregar(PesquisaStorage.listar());
+        tableModel.carregar(DesempenhoStorage.listar());
     }
 } // fim da classe DesempenhoListPanel

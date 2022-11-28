@@ -7,13 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PesquisaStorage {
-    //private static List<Tarefa> tarefas = new ArrayList<>();
-    //private static int incremento = 1;
-
+    
     public static boolean inserir(Pesquisa pesquisa) {
-        //tarefa.setId(incremento++);
-        //tarefas.add(tarefa);
-
         String query = "INSERT INTO pesquisa (idCandidato, intencaoVotos, fontePesquisa, mesPesquisa, anoPesquisa) VALUES (?, ?, ?, ?, ?)";
 
         Connection conexao = null;
@@ -57,11 +52,6 @@ public class PesquisaStorage {
     }
 
     public static boolean atualizar(Pesquisa pesquisa) {
-        //int idx = tarefas.indexOf(tarefa);
-        //if (idx >= 0) {
-        //    tarefas.set(idx, tarefa);
-        //}
-
         String query = "UPDATE pesquisa SET idCandidato = ?, intencaoVotos = ?, fontePesquisa = ?, mesPesquisa = ?, anoPesquisa = ? WHERE idPesquisa = ?";
 
         Connection conexao = null;
@@ -96,8 +86,6 @@ public class PesquisaStorage {
     }
 
     public static boolean remover(Pesquisa pesquisa) {
-        //tarefas.remove(tarefa);
-
         String query = "DELETE FROM pesquisa WHERE idPesquisa = ?";
 
         Connection conexao = null;
@@ -127,8 +115,6 @@ public class PesquisaStorage {
     }
 
     public static List<Pesquisa> listar() {
-        //return tarefas;
-
         List<Pesquisa> pesquisas = new ArrayList<>();
 
         String query = "SELECT * FROM pesquisa ORDER BY idPesquisa";
@@ -141,54 +127,6 @@ public class PesquisaStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.createStatement();
-            resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                Pesquisa pesquisa = new Pesquisa();
-                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
-                pesquisa.setIdCandidato(resultSet.getInt("idCandidato"));
-                pesquisa.setIntencaoVotos(resultSet.getInt("intencaoVotos"));
-                pesquisa.setFontePesquisa(resultSet.getString("fontePesquisa"));
-                pesquisa.setMesPesquisa(resultSet.getInt("mesPesquisa"));
-                pesquisa.setAnoPesquisa(resultSet.getInt("anoPesquisa"));
-
-                pesquisas.add(pesquisa);
-            }
-        } catch (SQLException e ) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return pesquisas;
-    }
-
-    public static List<Pesquisa> listar(int candidato) {
-        //return tarefas;
-
-        List<Pesquisa> pesquisas = new ArrayList<>();
-
-        String query = "SELECT * FROM pesquisa WHERE idCandidato = " + candidato + " ORDER BY mesPesquisa, anoPesquisa";
-
-        Connection conexao = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
-
-        try {
-            conexao = ConexaoFactory.getConexao();
-
-            statement = conexao.createStatement();
-
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {

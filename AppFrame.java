@@ -15,7 +15,7 @@ public class AppFrame extends JFrame {
     private DesempenhoListPanel desempenhoListPanel;
 
     public AppFrame() {
-        super("Todo App");
+        super("ELEICOES BRASIL 2022");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         

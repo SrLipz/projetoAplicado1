@@ -1,5 +1,4 @@
 import java.sql.Connection;
-//import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -7,12 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DesempenhoStorage {
-    //private static List<Tarefa> tarefas = new ArrayList<>();
-    //private static int incremento = 1;
 
     public static List<Desempenho> listar() {
-        //return tarefas;
-
         List<Desempenho> desempenhos = new ArrayList<>();
 
         String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c inner join projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato order by mesPesquisa, anoPesquisa";
@@ -58,8 +53,6 @@ public class DesempenhoStorage {
     }
 
     public static List<Desempenho> listar(String nome) {
-        //return tarefas;
-
         List<Desempenho> desempenhos = new ArrayList<>();
 
         String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c inner join projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato WHERE NomeCandidato like '" + nome+ "%' order by mesPesquisa, anoPesquisa";
