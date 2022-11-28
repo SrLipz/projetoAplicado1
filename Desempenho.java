@@ -1,4 +1,4 @@
-public class Desemepenho {
+public class Desempenho {
     
     private String nomeCandidato;
     private String siglaPartido;
@@ -43,9 +43,4 @@ public class Desemepenho {
     public void setAnoPesquisa(int anoPesquisa) {
         this.anoPesquisa = anoPesquisa;
     }
-
-
-
-
-
 }   

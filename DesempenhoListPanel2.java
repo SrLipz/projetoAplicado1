@@ -16,17 +16,17 @@ import javax.swing.ListSelectionModel;
 //import javax.swing.table.DefaultTableModel;
 
 
-public class DesempenhoListPanel extends JPanel {
+public class DesempenhoListPanel2 extends JPanel {
     private AppFrame frame;
 
     private JTextField txtPesquisa;
     private JButton btnVoltar;
     private JTable tabela;
-    private DesempenhoTableModel tableModel;
+    private DesempenhoTableModel2 tableModel;
     //private TableRowSorter<DesempenhoTableModel> rowSorter;
 
 
-    public DesempenhoListPanel(AppFrame frame) {
+    public DesempenhoListPanel2(AppFrame frame) {
         this.frame = frame;
 
         setLayout(new BorderLayout());
@@ -68,7 +68,7 @@ public class DesempenhoListPanel extends JPanel {
             public void keyReleased(KeyEvent e) {
                 //rowSorter.setRowFilter(RowFilter.regexFilter(txtPesquisa.getText()));
                 if (txtPesquisa.getText() != null) {
-                    tableModel.carregar(PesquisaStorage.listar(Integer.parseInt(txtPesquisa.getText())));
+                    tableModel.carregar(DesempenhoStorage.listar(txtPesquisa.getText()));
                 }
             }
             
@@ -88,7 +88,7 @@ public class DesempenhoListPanel extends JPanel {
     private void criarTabelaPanel() {
         JPanel panel = new JPanel();
 
-        tableModel = new DesempenhoTableModel(PesquisaStorage.listar());
+        tableModel = new DesempenhoTableModel2(DesempenhoStorage.listar());
         tabela = new JTable(tableModel);
         //rowSorter = new TableRowSorter<>(tableModel);
         //tabela.setRowSorter(rowSorter);
@@ -101,6 +101,6 @@ public class DesempenhoListPanel extends JPanel {
     }
 
     public void recarregar() {
-        tableModel.carregar(PesquisaStorage.listar());
+        tableModel.carregar(DesempenhoStorage.listar());
     }
 } // fim da classe DesempenhoListPanel

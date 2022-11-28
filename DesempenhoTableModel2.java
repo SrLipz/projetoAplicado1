@@ -3,21 +3,22 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-public class DesempenhoTableModel extends AbstractTableModel {
-    private List<Pesquisa> pesquisas = new ArrayList<>();
+public class DesempenhoTableModel2 extends AbstractTableModel {
+    private List<Desempenho> desempenhos = new ArrayList<>();
     private String[] colunas = new String[]{"Candidato",
+                                            "Partido",
                                             "Intencao",
                                             "Fonte",
                                             "Mes",
                                             "Ano"};
 
-    public DesempenhoTableModel(List<Pesquisa> pesquisas) {
-        this.pesquisas = pesquisas;
+    public DesempenhoTableModel2(List<Desempenho> desempenhos) {
+        this.desempenhos = desempenhos;
     }
 
     @Override
     public int getRowCount() {
-        return pesquisas.size();
+        return desempenhos.size();
     }
 
     @Override
@@ -38,23 +39,26 @@ public class DesempenhoTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIdx, int colIdx) {
         String value = null;
         
-        Pesquisa pesquisa = pesquisas.get(rowIdx);
+        Desempenho desempenho = desempenhos.get(rowIdx);
 
         switch (colIdx) {
         case 0:
-            value = Integer.toString(pesquisa.getIdCandidato());
+            value = desempenho.getNomeCandidato();
             break;
         case 1:
-            value = Integer.toString(pesquisa.getIntencaoVotos());
+            value = desempenho.getSiglaPartido();
             break;
         case 2:
-            value = pesquisa.getFontePesquisa();
+            value = Integer.toString(desempenho.getIntencaoVotos());
             break;
         case 3:
-            value = Integer.toString(pesquisa.getMesPesquisa());
+            value = desempenho.getFontePesquisa();
             break;
         case 4:
-            value = Integer.toString(pesquisa.getAnoPesquisa());
+            value = Integer.toString(desempenho.getMesPesquisa());
+            break;
+        case 5:
+            value = Integer.toString(desempenho.getAnoPesquisa());
             break;
         default:
             System.err.printf("[ERRO] Indice de coluna invalido: %d%n", 
@@ -64,16 +68,16 @@ public class DesempenhoTableModel extends AbstractTableModel {
         return value;
     }
 
-    public void carregar(List<Pesquisa> pesquisas) {
-        this.pesquisas = pesquisas;
+    public void carregar(List<Desempenho> desempenhos) {
+        this.desempenhos = desempenhos;
         fireTableDataChanged();
     }
 
-    public Pesquisa getPesquisa(int rowIdx) {
-        Pesquisa pesquisa = null;
+    public Desempenho getDesempenho(int rowIdx) {
+        Desempenho desempenho = null;
 
-        pesquisa = pesquisas.get(rowIdx);
+        desempenho = desempenhos.get(rowIdx);
 
-        return pesquisa;
+        return desempenho;
     }
 } // fim da classe DesempenhoTableModel
