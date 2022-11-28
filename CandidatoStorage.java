@@ -6,15 +6,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PesquisaStorage {
-    //private static List<Tarefa> tarefas = new ArrayList<>();
-    //private static int incremento = 1;
+public class CandidatoStorage {
 
-    public static boolean inserir(Pesquisa pesquisa) {
-        //tarefa.setId(incremento++);
-        //tarefas.add(tarefa);
-
-        String query = "INSERT INTO pesquisa (FontePesquisa) VALUES (?)";
+    public static boolean inserir(Candidato candidato) {
+        String query = "INSERT INTO candidato (NomeCandidato, NumeroPartido, SiglaPartido) VALUES (?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -24,12 +19,14 @@ public class PesquisaStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, pesquisa.getFontePesquisa());
+            statement.setString(1, candidato.getNomeCandidato());
+            statement.setInt(2, candidato.getNumeroCandidato());
+            statement.setString(3, candidato.getPartidoCandidato());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                pesquisa.setIdPesquisa(resultSet.getInt(1));
+                candidato.setIdCandidato(resultSet.getInt(1));
             }
         } catch (SQLException e ) {
             e.printStackTrace();
@@ -52,13 +49,8 @@ public class PesquisaStorage {
         return true;
     }
 
-    public static boolean atualizar(Pesquisa pesquisa) {
-        //int idx = tarefas.indexOf(tarefa);
-        //if (idx >= 0) {
-        //    tarefas.set(idx, tarefa);
-        //}
-
-        String query = "UPDATE pesquisa SET FontePesquisa = ? WHERE idPesquisa = ?";
+    public static boolean atualizar(Candidato candidato) {
+        String query = "UPDATE candidato SET NomeCandidato = ?, NumeroPartido = ?, SiglaPartido = ? WHERE idCandidato = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -67,39 +59,10 @@ public class PesquisaStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query);
-            statement.setString(1, pesquisa.getFontePesquisa());
-            statement.setInt(2, pesquisa.getIdPesquisa());
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public static boolean remover(Pesquisa pesquisa) {
-        //tarefas.remove(tarefa);
-
-        String query = "DELETE FROM pesquisa WHERE idPesquisa = ?";
-
-        Connection conexao = null;
-        PreparedStatement statement = null;
-
-        try {
-            conexao = ConexaoFactory.getConexao();
-
-            statement = conexao.prepareStatement(query);
-            statement.setInt(1, pesquisa.getIdPesquisa());
+            statement.setString(1, candidato.getNomeCandidato());
+            statement.setInt(2, candidato.getNumeroCandidato());
+            statement.setString(3, candidato.getPartidoCandidato());
+            statement.setInt(4, candidato.getIdCandidato());
             statement.execute();
         } catch (SQLException e ) {
             e.printStackTrace();
@@ -118,12 +81,39 @@ public class PesquisaStorage {
         return true;
     }
 
-    public static List<Pesquisa> listar() {
-        //return tarefas;
+    public static boolean remover(Candidato candidato) {
+        String query = "DELETE FROM candidato WHERE idCandidato = ?";
 
-        List<Pesquisa> pesquisas = new ArrayList<>();
+        Connection conexao = null;
+        PreparedStatement statement = null;
 
-        String query = "SELECT * FROM pesquisa ORDER BY idPesquisa";
+        try {
+            conexao = ConexaoFactory.getConexao();
+
+            statement = conexao.prepareStatement(query);
+            statement.setInt(1, candidato.getIdCandidato());
+            statement.execute();
+        } catch (SQLException e ) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static List<Candidato> listar() {
+        List<Candidato> candidatos = new ArrayList<>();
+
+        String query = "SELECT * FROM candidato ORDER BY idCandidato";
 
         Connection conexao = null;
         Statement statement = null;
@@ -136,11 +126,13 @@ public class PesquisaStorage {
             resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                Pesquisa pesquisa = new Pesquisa();
-                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
-                pesquisa.setFontePesquisa(resultSet.getString("FontePesquisa"));
+                Candidato candidato = new Candidato();
+                candidato.setIdCandidato(resultSet.getInt("idCandidato"));
+                candidato.setNomeCandidato(resultSet.getString("NomeCandidato"));
+                candidato.setNumeroCandidato(resultSet.getInt("NumeroPartido"));
+                candidato.setPartidoCandidato(resultSet.getString("SiglaPartido"));
 
-                pesquisas.add(pesquisa);
+                candidatos.add(candidato);
             }
         } catch (SQLException e ) {
             e.printStackTrace();
@@ -158,6 +150,6 @@ public class PesquisaStorage {
             }
         }
 
-        return pesquisas;
+        return candidatos;
     }
-} // fim da classe TarefaStorage
+} // fim da classe CandidatoStorage

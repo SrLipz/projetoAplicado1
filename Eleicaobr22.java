@@ -1,6 +1,6 @@
 import javax.swing.SwingUtilities;
 
-public class TodoApp {
+public class Eleicaobr22 {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -14,4 +14,4 @@ public class TodoApp {
         AppFrame frame = new AppFrame();
         frame.mostrar();
     }
-} // fim da classe TodoApp
+} // fim da classe Eleicaobr22

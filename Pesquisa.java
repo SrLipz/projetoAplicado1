@@ -1,7 +1,11 @@
 public class Pesquisa {
     
     private int idPesquisa;
+    private int idCandidato;
+    private int intencaoVotos;
     private String fontePesquisa;
+    private int mesPesquisa;
+    private int anoPesquisa;
 
     public int getIdPesquisa() {
         return idPesquisa;
@@ -11,6 +15,21 @@ public class Pesquisa {
         this.idPesquisa = idPesquisa;
     }
 
+    public int getIdCandidato() {
+        return idCandidato;
+    }
+
+    public void setIdCandidato(int idCandidato) {
+        this.idCandidato = idCandidato;
+    }
+
+    public int getIntencaoVotos() {
+        return intencaoVotos;
+    }
+
+    public void setIntencaoVotos(int intencaoVotos) {
+        this.intencaoVotos = intencaoVotos;
+    }
 
     public String getFontePesquisa() {
         return fontePesquisa;
@@ -20,6 +39,21 @@ public class Pesquisa {
         this.fontePesquisa = fontePesquisa;
     }
 
+    public int getMesPesquisa() {
+        return mesPesquisa;
+    }
+
+    public void setMesPesquisa(int mesPesquisa) {
+        this.mesPesquisa = mesPesquisa;
+    }
+
+    public int getAnoPesquisa() {
+        return anoPesquisa;
+    }
+
+    public void setAnoPesquisa(int anoPesquisa) {
+        this.anoPesquisa = anoPesquisa;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -39,4 +73,4 @@ public class Pesquisa {
         return idPesquisa == outraPesquisa.getIdPesquisa() ;
     }
     
-} // fim da classe Tarefa
+} // fim da classe Pesquisa

@@ -59,7 +59,7 @@ public class CandidatoFormPanel extends JPanel {
         formatCampo();
     }
 
-    public void setNomeCandidato(Candidato candidato) {
+    public void setCandidato(Candidato candidato) {
         this.candidato = candidato;
     }
 
@@ -99,8 +99,6 @@ public class CandidatoFormPanel extends JPanel {
         criarBtnCancelar(btnPanel);
 
         adicionarComponente(btnPanel, 8, 0, 2, 1);
-
-        
     }
 
     private void criarBtnSalvar(JPanel btnPanel) {
@@ -113,11 +111,10 @@ public class CandidatoFormPanel extends JPanel {
                     novoCandidato.setNomeCandidato(txtNome.getText());
                     novoCandidato.setNumeroCandidato(Integer.parseInt(txtNumero.getText()));
                     novoCandidato.setPartidoCandidato(txtPartido.getText());
-
                     CandidatoStorage.inserir(novoCandidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
                                                   "Candidato incluido com sucesso", 
-                                                  "Todo App", 
+                                                  "ELEICOES BRASIL 2022", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     candidato.setNomeCandidato(txtNome.getText());
@@ -126,7 +123,7 @@ public class CandidatoFormPanel extends JPanel {
                     CandidatoStorage.atualizar(CandidatoFormPanel.this.candidato);
                     JOptionPane.showMessageDialog(CandidatoFormPanel.this, 
                                                   "Candidato atualizado com sucesso", 
-                                                  "Todo App", 
+                                                  "ELEICOES BRASIL 2022", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 }
 
@@ -146,14 +143,6 @@ public class CandidatoFormPanel extends JPanel {
             }
         });
         btnPanel.add(btnCancelar);
-    }
-
-    private void habilitarBtns() {
-        btnSalvar.setEnabled(true);
-    }
-
-    private void desabilitarBtns() {
-        btnSalvar.setEnabled(false);
     }
 
     private void adicionarComponente(JComponent componente, 
@@ -184,4 +173,4 @@ public class CandidatoFormPanel extends JPanel {
         }
     }
 
-} // fim da classe TarefaFormPanel
+} // fim da classe CandidatoFormPanel

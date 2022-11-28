@@ -5,7 +5,7 @@ import javax.swing.table.AbstractTableModel;
 
 public class CandidatoTableModel extends AbstractTableModel {
     private List<Candidato> candidatos = new ArrayList<>();
-    private String[] colunas = new String[]{"Id", 
+    private String[] colunas = new String[]{"idCandidato", 
                                             "Nome",
                                             "Numero",
                                             "Partido"};
@@ -65,11 +65,11 @@ public class CandidatoTableModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public Candidato getNomeCandidato(int rowIdx) {
+    public Candidato getCandidato(int rowIdx) {
         Candidato candidato = null;
 
         candidato = candidatos.get(rowIdx);
 
         return candidato;
     }
-} // fim da classe TarefaTableModel
+} // fim da classe CandidatoTableModel

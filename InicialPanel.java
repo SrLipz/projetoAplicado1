@@ -42,7 +42,7 @@ public class InicialPanel extends JPanel {
     }
 
     private void criarBtnCandidato(){
-        btnCandidato = new JButton("Candidato");
+        btnCandidato = new JButton("CANDIDATO");
         btnCandidato.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,7 +52,7 @@ public class InicialPanel extends JPanel {
     }
 
     private void criarBtnPesquisa(){
-        btnPesquisa = new JButton("Pesquisa");
+        btnPesquisa = new JButton("PESQUISA");
         btnPesquisa.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,13 +62,13 @@ public class InicialPanel extends JPanel {
     }
 
     private void criarBtnDesempenho(){
-        btnDesempenho = new JButton("Desempenho");
+        btnDesempenho = new JButton("DESEMPENHO");
         btnDesempenho.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarDesemepenhoFormPanel();
+                frame.mostrarDesempenhoListPanel();
             }
         });
     }
  
-}
+} // fim da classe InicialPanel

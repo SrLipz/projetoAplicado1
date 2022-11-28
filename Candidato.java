@@ -38,6 +38,11 @@ public class Candidato {
     }
 
     @Override
+    public String toString() {
+        return "(" + getIdCandidato() + ")" + getNomeCandidato();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -54,5 +59,5 @@ public class Candidato {
         Candidato outroCandidato = (Candidato) obj;
         return idCandidato == outroCandidato.getIdCandidato();
     }
-    
-} // fim da classe Tarefa
+
+} // fim da classe Candidato

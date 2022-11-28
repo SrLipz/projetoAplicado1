@@ -1,5 +1,3 @@
-/* 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,15 +6,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IntencaoStorage {
-    //private static List<Tarefa> tarefas = new ArrayList<>();
-    //private static int incremento = 1;
-
+public class PesquisaStorage {
+    
     public static boolean inserir(Pesquisa pesquisa) {
-        //tarefa.setId(incremento++);
-        //tarefas.add(tarefa);
-
-        String query = "INSERT INTO intencao (fonte, intencao) VALUES (?, ?)";
+        String query = "INSERT INTO pesquisa (idCandidato, intencaoVotos, fontePesquisa, mesPesquisa, anoPesquisa) VALUES (?, ?, ?, ?, ?)";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -26,8 +19,11 @@ public class IntencaoStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, pesquisa.getFontePesquisa());
-            statement.setString(2, pesquisa.getIntencaoPesquisa());
+            statement.setInt(1, pesquisa.getIdCandidato());
+            statement.setInt(2, pesquisa.getIntencaoVotos());
+            statement.setString(3, pesquisa.getFontePesquisa());
+            statement.setInt(4, pesquisa.getMesPesquisa());
+            statement.setInt(5, pesquisa.getAnoPesquisa());
             statement.execute();
 
             resultSet = statement.getGeneratedKeys();
@@ -56,12 +52,7 @@ public class IntencaoStorage {
     }
 
     public static boolean atualizar(Pesquisa pesquisa) {
-        //int idx = tarefas.indexOf(tarefa);
-        //if (idx >= 0) {
-        //    tarefas.set(idx, tarefa);
-        //}
-
-        String query = "UPDATE pesquisa SET fonte = ?, intencao = ? WHERE id = ?";
+        String query = "UPDATE pesquisa SET idCandidato = ?, intencaoVotos = ?, fontePesquisa = ?, mesPesquisa = ?, anoPesquisa = ? WHERE idPesquisa = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -70,9 +61,12 @@ public class IntencaoStorage {
             conexao = ConexaoFactory.getConexao();
 
             statement = conexao.prepareStatement(query);
-            statement.setString(1, pesquisa.getFontePesquisa());
-            statement.setString(2, pesquisa.getIntencaoPesquisa());
-            statement.setInt(3, pesquisa.getIdPesquisa());
+            statement.setInt(1, pesquisa.getIdCandidato());
+            statement.setInt(2, pesquisa.getIntencaoVotos());
+            statement.setString(3, pesquisa.getFontePesquisa());
+            statement.setInt(4, pesquisa.getMesPesquisa());
+            statement.setInt(5, pesquisa.getAnoPesquisa());
+            statement.setInt(6, pesquisa.getIdPesquisa());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,9 +86,7 @@ public class IntencaoStorage {
     }
 
     public static boolean remover(Pesquisa pesquisa) {
-        //tarefas.remove(tarefa);
-
-        String query = "DELETE FROM pesquisa WHERE id = ?";
+        String query = "DELETE FROM pesquisa WHERE idPesquisa = ?";
 
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -123,11 +115,9 @@ public class IntencaoStorage {
     }
 
     public static List<Pesquisa> listar() {
-        //return tarefas;
-
         List<Pesquisa> pesquisas = new ArrayList<>();
 
-        String query = "SELECT * FROM pesquisa ORDER BY id";
+        String query = "SELECT * FROM pesquisa ORDER BY idPesquisa";
 
         Connection conexao = null;
         Statement statement = null;
@@ -141,9 +131,12 @@ public class IntencaoStorage {
 
             while (resultSet.next()) {
                 Pesquisa pesquisa = new Pesquisa();
-                pesquisa.setIdPesquisa(resultSet.getInt("id"));
-                pesquisa.setFontePesquisa(resultSet.getString("fonte"));
-                pesquisa.setIntencaoPesquisa(resultSet.getString("intencao"));
+                pesquisa.setIdPesquisa(resultSet.getInt("idPesquisa"));
+                pesquisa.setIdCandidato(resultSet.getInt("idCandidato"));
+                pesquisa.setIntencaoVotos(resultSet.getInt("intencaoVotos"));
+                pesquisa.setFontePesquisa(resultSet.getString("fontePesquisa"));
+                pesquisa.setMesPesquisa(resultSet.getInt("mesPesquisa"));
+                pesquisa.setAnoPesquisa(resultSet.getInt("anoPesquisa"));
 
                 pesquisas.add(pesquisa);
             }
@@ -165,5 +158,5 @@ public class IntencaoStorage {
 
         return pesquisas;
     }
-} // fim da classe TarefaStorage
-*/
+
+} // fim da classe PesquisaStorage
