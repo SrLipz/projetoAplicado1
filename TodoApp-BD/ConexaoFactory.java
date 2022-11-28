@@ -1,3 +1,4 @@
+//java -cp ".;resources/mysql-connector-j-8.0.31.jar" TodoApp
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -5,7 +6,7 @@ import java.sql.SQLException;
 public class ConexaoFactory {
     private static final String URL = "jdbc:mysql://localhost:3306/projeto";
     private static final String USUARIO = "root";
-    private static final String SENHA = "Henrique@13";
+    private static final String SENHA = "1SenhaMySQL@";
 
     private static Connection conexao;
     private ConexaoFactory() {}
