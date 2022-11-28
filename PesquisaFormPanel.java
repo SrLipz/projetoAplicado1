@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -23,11 +25,11 @@ public class PesquisaFormPanel extends JPanel {
     private GridBagConstraints constraints;
 
     private JTextField txtIdPesquisa;
-    private JTextField txtIdCandidato;
-    private JTextField txtIntencao;
+    private JFormattedTextField txtIdCandidato;
+    private JFormattedTextField txtIntencao;
     private JTextField txtFonte;
-    private JTextField txtMes;
-    private JTextField txtAno;
+    private JFormattedTextField txtMes;
+    private JFormattedTextField txtAno;
     private JButton btnSalvar;
     private JButton btnCancelar;
 
@@ -63,7 +65,7 @@ public class PesquisaFormPanel extends JPanel {
         });
 
         criarForm();
-        //formatCampo();
+        formatCampo();
         
     }
 
@@ -82,7 +84,7 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("Candidato");
         adicionarComponente(label, 2, 0);
-        txtIdCandidato = new JTextField(30);
+        txtIdCandidato = new JFormattedTextField();
         adicionarComponente(txtIdCandidato, 3, 0);
 
         label = new JLabel("Intencao");
@@ -188,15 +190,17 @@ public class PesquisaFormPanel extends JPanel {
         add(componente);
     }
 
-    /*private void formatCampo () {
+    private void formatCampo () {
         try {
-            MaskFormatter mask = new MaskFormatter("##");
-            mask.install(txtDia);
-            mask.install(txtMes);
-            mask.install(txtIntencao);
+            MaskFormatter maskIntencao = new MaskFormatter("##");
+            maskIntencao.install(txtIntencao);
+            MaskFormatter maskMes = new MaskFormatter("##");
+            maskMes.install(txtMes);
+            MaskFormatter maskAno = new MaskFormatter("####");
+            maskAno.install(txtAno);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
 } // fim da classe PesquisaFormPanel
