@@ -25,7 +25,7 @@ public class PesquisaFormPanel extends JPanel {
     private GridBagConstraints constraints;
 
     private JTextField txtIdPesquisa;
-    private JFormattedTextField txtIdCandidato;
+    private JTextField txtIdCandidato;
     private JFormattedTextField txtIntencao;
     private JTextField txtFonte;
     private JFormattedTextField txtMes;
@@ -84,7 +84,7 @@ public class PesquisaFormPanel extends JPanel {
 
         label = new JLabel("Candidato");
         adicionarComponente(label, 2, 0);
-        txtIdCandidato = new JFormattedTextField();
+        txtIdCandidato = new JTextField(30);
         adicionarComponente(txtIdCandidato, 3, 0);
 
         label = new JLabel("Intencao");
