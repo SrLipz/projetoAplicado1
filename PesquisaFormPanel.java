@@ -5,10 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-//import java.util.ArrayList;
 
 import javax.swing.JButton;
-//import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -26,7 +24,6 @@ public class PesquisaFormPanel extends JPanel {
 
     private JTextField txtIdPesquisa;
     private JTextField txtIdCandidato;
-    //private CandidatoComboBoxModel cbCandidato;
     private JTextField txtIntencao;
     private JTextField txtFonte;
     private JTextField txtMes;
@@ -87,14 +84,6 @@ public class PesquisaFormPanel extends JPanel {
         adicionarComponente(label, 2, 0);
         txtIdCandidato = new JTextField(30);
         adicionarComponente(txtIdCandidato, 3, 0);
-
-        /*label = new JLabel("Candidato");
-        adicionarComponente(label, 2, 0);
-        cbCandidato = new JComboBox<>();
-        cbCandidato.removeAllItems();
-        cbCandidato.addItem(CandidatoStorage.listar());
-        cbCandidato.setMaximumRowCount(3); 
-        adicionarComponente(cbCandidato, 3, 0);*/
 
         label = new JLabel("Intencao");
         adicionarComponente(label, 4, 0);

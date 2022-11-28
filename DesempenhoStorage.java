@@ -10,7 +10,7 @@ public class DesempenhoStorage {
     public static List<Desempenho> listar() {
         List<Desempenho> desempenhos = new ArrayList<>();
 
-        String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c inner join projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato order by mesPesquisa, anoPesquisa";
+        String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c INNER JOIN projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato ORDER BY mesPesquisa, anoPesquisa";
 
         Connection conexao = null;
         Statement statement = null;
@@ -55,7 +55,7 @@ public class DesempenhoStorage {
     public static List<Desempenho> listar(String nome) {
         List<Desempenho> desempenhos = new ArrayList<>();
 
-        String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c inner join projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato WHERE NomeCandidato like '" + nome+ "%' order by mesPesquisa, anoPesquisa";
+        String query = "SELECT c.NomeCandidato, c.SiglaPartido, p.intencaoVotos, p.fontePesquisa, p.mesPesquisa, p.anoPesquisa FROM projetoaplicado.candidato c INNER JOIN projetoaplicado.pesquisa p on c.idCandidato = p.idCandidato WHERE NomeCandidato like '" + nome + "%' ORDER BY mesPesquisa, anoPesquisa";
 
         Connection conexao = null;
         Statement statement = null;
