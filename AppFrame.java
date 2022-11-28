@@ -7,11 +7,11 @@ public class AppFrame extends JFrame {
     private CardLayout cardLayout;
     private JPanel cardPanel;
 
-    private CandidatoListPanel candidatoPanel;
+    private CandidatoListPanel candidatoListPanel;
     private CandidatoFormPanel candidatoFormPanel;
     private InicialPanel inicialPanel;
-    private PesquisaListPanel pesquisaPanel;
-    private PesquisaFormPanel pesquisaForm;
+    private PesquisaListPanel pesquisaListPanel;
+    private PesquisaFormPanel pesquisaFormPanel;
     private DesempenhoListPanel desempenhoListPanel;
 
     public AppFrame() {
@@ -38,14 +38,14 @@ public class AppFrame extends JFrame {
         inicialPanel = new InicialPanel(this);
         cardPanel.add(inicialPanel, InicialPanel.class.getName());
 
-        pesquisaPanel = new PesquisaListPanel(this);
-        cardPanel.add(pesquisaPanel, PesquisaListPanel.class.getName());
+        pesquisaListPanel = new PesquisaListPanel(this);
+        cardPanel.add(pesquisaListPanel, PesquisaListPanel.class.getName());
 
-        pesquisaForm = new PesquisaFormPanel(this);
-        cardPanel.add(pesquisaForm, PesquisaFormPanel.class.getName()); 
+        pesquisaFormPanel = new PesquisaFormPanel(this);
+        cardPanel.add(pesquisaFormPanel, PesquisaFormPanel.class.getName()); 
 
-        candidatoPanel = new CandidatoListPanel(this);
-        cardPanel.add(candidatoPanel, CandidatoListPanel.class.getName());
+        candidatoListPanel = new CandidatoListPanel(this);
+        cardPanel.add(candidatoListPanel, CandidatoListPanel.class.getName());
 
         candidatoFormPanel = new CandidatoFormPanel(this);
         cardPanel.add(candidatoFormPanel, CandidatoFormPanel.class.getName());
@@ -61,7 +61,7 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarCandidatoListPanel() {
-        candidatoPanel.recarregar();
+        candidatoListPanel.recarregar();
         cardLayout.show(cardPanel, CandidatoListPanel.class.getName());
     }
 
@@ -70,12 +70,12 @@ public class AppFrame extends JFrame {
     }
 
     public void mostrarPesquisaListPanel() {
-        pesquisaPanel.recarregar();
+        pesquisaListPanel.recarregar();
         cardLayout.show(cardPanel, PesquisaListPanel.class.getName());
     }
 
-    public void mostrarPesquisaForm(Pesquisa pesquisa) {
-        pesquisaForm.setPesquisa(pesquisa);
+    public void mostrarPesquisaFormPanel(Pesquisa pesquisa) {
+        pesquisaFormPanel.setPesquisa(pesquisa);
         cardLayout.show(cardPanel, PesquisaFormPanel.class.getName());
     }
 

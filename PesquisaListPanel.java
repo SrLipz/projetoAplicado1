@@ -60,7 +60,7 @@ public class PesquisaListPanel extends JPanel {
         btnCriar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarPesquisaForm(null);
+                frame.mostrarPesquisaFormPanel(null);
             }
         });
     }
@@ -70,7 +70,7 @@ public class PesquisaListPanel extends JPanel {
         btnEditar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarPesquisaForm(tableModel.getPesquisa(tabela.getSelectedRow()));
+                frame.mostrarPesquisaFormPanel(tableModel.getPesquisa(tabela.getSelectedRow()));
             }
         });
     }
