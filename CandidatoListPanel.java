@@ -79,7 +79,7 @@ public class CandidatoListPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Candidato candidato = tableModel.getCandidato(tabela.getSelectedRow());
-                int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover?", "ELEICOES BRASIL 2022", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover este Candidato?", "ELEICOES BRASIL 2022", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
                     CandidatoStorage.remover(candidato);
                     recarregar();
