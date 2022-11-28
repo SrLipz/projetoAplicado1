@@ -1,2 +1,2 @@
-# projetoAplicado1
-Projeto aplicado 1 
+# TodoApp
+Gerenciador de Tarefas - UC POO
