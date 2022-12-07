@@ -83,8 +83,15 @@ public class PesquisaListPanel extends JPanel {
                 Pesquisa pesquisa = tableModel.getPesquisa(tabela.getSelectedRow());
                 int resposta = JOptionPane.showConfirmDialog(PesquisaListPanel.this, "Deseja realmente remover?", "Todo App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
-                    PesquisaStorage.remover(pesquisa);
-                    recarregar();
+                    if (resposta == JOptionPane.YES_OPTION) {
+                        if (PesquisaStorage.remover(pesquisa)) {
+                            JOptionPane.showMessageDialog(PesquisaListPanel.this, 
+                            "Pesquisa excluida com sucesso!", 
+                            "ELEICOES BRASIL 2022",
+                            JOptionPane.INFORMATION_MESSAGE);
+                            recarregar();
+                        }
+                    }
                 }
             }
         });

@@ -81,8 +81,18 @@ public class CandidatoListPanel extends JPanel {
                 Candidato candidato = tableModel.getCandidato(tabela.getSelectedRow());
                 int resposta = JOptionPane.showConfirmDialog(CandidatoListPanel.this, "Deseja realmente remover?", "Todo App", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
                 if (resposta == JOptionPane.YES_OPTION) {
-                    CandidatoStorage.remover(candidato);
-                    recarregar();
+                    if (!CandidatoStorage.remover(candidato)) {
+                        JOptionPane.showMessageDialog(CandidatoListPanel.this, 
+                        "Candidato nao foi excluido pois ele \npossui uma pesquisa cadastrada.", 
+                        "ELEICOES BRASIL 2022",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(CandidatoListPanel.this, 
+                        "Candidato excluido com sucesso!", 
+                        "ELEICOES BRASIL 2022",
+                        JOptionPane.INFORMATION_MESSAGE);
+                        recarregar();
+                    }   
                 }
             }
         });

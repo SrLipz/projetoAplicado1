@@ -66,7 +66,7 @@ public class CandidatoFormPanel extends JPanel {
     private void criarForm() {
         JLabel label;
 
-        label = new JLabel("ID");
+        label = new JLabel("ID Candidato");
         adicionarComponente(label, 0, 0);
         txtId = new JTextField(5);
         txtId.setEditable(false);

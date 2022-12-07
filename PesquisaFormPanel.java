@@ -76,13 +76,13 @@ public class PesquisaFormPanel extends JPanel {
     private void criarForm() {
         JLabel label;
 
-        label = new JLabel("ID");
+        label = new JLabel("ID Pesquisa");
         adicionarComponente(label, 0, 0);
         txtIdPesquisa = new JTextField(30);
         txtIdPesquisa.setEditable(false);
         adicionarComponente(txtIdPesquisa, 1, 0);
 
-        label = new JLabel("Candidato");
+        label = new JLabel("ID Candidato");
         adicionarComponente(label, 2, 0);
         txtIdCandidato = new JTextField(30);
         adicionarComponente(txtIdCandidato, 3, 0);

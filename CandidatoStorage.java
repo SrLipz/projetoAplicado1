@@ -81,6 +81,8 @@ public class CandidatoStorage {
         return true;
     }
 
+    public CandidatoFormPanel candidatoFormPanel;
+
     public static boolean remover(Candidato candidato) {
         String query = "DELETE FROM candidato WHERE idCandidato = ?";
 
