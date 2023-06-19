@@ -138,7 +138,7 @@ public class PesquisaFormPanel extends JPanel {
                     PesquisaStorage.inserir(novaPesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
                                                   "Pesquisa incluida com sucesso", 
-                                                  "Todo App", 
+                                                  "ELEICOES BRASIL 2022", 
                                                   JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     pesquisa.setIdCandidato(Integer.parseInt(txtIdCandidato.getText()));
@@ -149,7 +149,7 @@ public class PesquisaFormPanel extends JPanel {
                     PesquisaStorage.atualizar(PesquisaFormPanel.this.pesquisa);
                     JOptionPane.showMessageDialog(PesquisaFormPanel.this, 
                                                   "Pesquisa atualizada com sucesso",
-                                                  "Todo App",
+                                                  "ELEICOES BRASIL 2022",
                                                   JOptionPane.INFORMATION_MESSAGE);
                 }
 
